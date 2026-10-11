@@ -56,7 +56,6 @@ function tearDown() {
 function loop(WORLD) {
     while (running()) {
         update(WORLD);
-        r.TakeScreenshot("trig_pattern.png");
         draw(WORLD);
     }
 }

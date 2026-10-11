@@ -60,10 +60,10 @@ function draw(WORLD) {
 
     for (let i = 0; i < 2; i += 0.1) {
         r.DrawCircleSectorLines(
-            { x: WORLD.B_POINT.x, y: WORLD.A_POINT.y },
-            30 + i,
-            180,
-            270,
+            WORLD.A_POINT,
+            50 + i,
+            90 + degreeValue,
+            90,
             10,
             r.BLACK,
         );
@@ -71,8 +71,8 @@ function draw(WORLD) {
 
     r.DrawText(
         `${degreeValue.toFixed(2)}°`,
-        WORLD.B_POINT.x - 80,
-        WORLD.A_POINT.y - 40,
+        WORLD.A_POINT.x + 60,
+        WORLD.A_POINT.y - 20,
         20,
         r.BLACK,
     );
