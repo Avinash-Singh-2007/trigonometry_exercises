@@ -7,7 +7,7 @@ function running() {
 function setup() {
     const WIDTH = 400;
     const HEIGHT = 400;
-    const TITLE = "Circle Points";
+    const TITLE = "POLYGON";
     const FPS = 50;
 
     r.InitWindow(WIDTH, HEIGHT, TITLE);
@@ -25,11 +25,37 @@ function draw() {
     r.ClearBackground(r.WHITE);
 
     const POLYGON = {
-        x: 200,
-        y: 200,
-        radius: 150,
-        sides: 7,
+        X: 200,
+        Y: 200,
+        RADIUS: 150,
+        SIDES: 7,
     };
+
+    for (let i = 0; i < POLYGON.SIDES; i++) {
+        const ANGLE_BETWEEN_POINTS = 360 / POLYGON.SIDES;
+
+        const VERTEX_START = {
+            x:
+                POLYGON.RADIUS * Math.cos(radians(i * ANGLE_BETWEEN_POINTS)) +
+                POLYGON.X,
+            y:
+                POLYGON.RADIUS * Math.sin(radians(i * ANGLE_BETWEEN_POINTS)) +
+                POLYGON.Y,
+        };
+
+        const VERTEX_END = {
+            x:
+                POLYGON.RADIUS *
+                    Math.cos(radians((i + 1) * ANGLE_BETWEEN_POINTS)) +
+                POLYGON.X,
+            y:
+                POLYGON.RADIUS *
+                    Math.sin(radians((i + 1) * ANGLE_BETWEEN_POINTS)) +
+                POLYGON.Y,
+        };
+
+        r.DrawLineEx(VERTEX_START, VERTEX_END, 3, r.BLACK);
+    }
 
     r.EndDrawing();
 }
