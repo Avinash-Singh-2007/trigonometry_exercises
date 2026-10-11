@@ -7,7 +7,7 @@ function running() {
 function setup() {
     const WIDTH = 1000;
     const HEIGHT = 800;
-    const TITLE = "POLYGON";
+    const TITLE = "ELLIPSE";
     const FPS = 50;
 
     const HORIZONTAL_RADIUS = 200;
