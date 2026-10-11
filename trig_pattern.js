@@ -10,7 +10,7 @@ function setup() {
     const WIDTH = 800;
     const HEIGHT = 800;
     const TITLE = "TRIG PATTERN";
-    const FPS = 50;
+    const FPS = 10;
 
     const ORIGIN_X = WIDTH / 2;
     const ORIGIN_Y = HEIGHT / 2;
@@ -35,15 +35,23 @@ function radians(degree) {
 
 function draw(WORLD) {
     r.BeginDrawing();
-    r.ClearBackground(r.WHITE);
+    r.ClearBackground(r.BLACK);
 
-    for (let i = 0; i <= WORLD.WIDTH; i += 0.1) {
-        const radius = Math.sin(radians(i) + time - i);
+    for (let i = 0; i < 800; i += 0.15) {
+        const a = i * 0.05;
+        const radius = 180 + 50 * Math.sin(a * 4 + time * 2);
 
-        const x = radius * i + WORLD.ORIGIN_X;
-        const y = Math.sin(radians(i)) + WORLD.ORIGIN_Y * 2 - i;
+        const x = Math.cos(a * time) * radius + WORLD.ORIGIN_X;
+        const y = Math.sin(a * time) * radius + WORLD.ORIGIN_Y;
 
-        r.DrawCircle(x, y, 4, r.DARKGRAY);
+        const color = {
+            r: 100,
+            g: 200,
+            b: 255,
+            a: 255,
+        };
+
+        r.DrawCircle(x, y, 2, color);
     }
 
     r.EndDrawing();

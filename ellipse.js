@@ -5,8 +5,8 @@ function running() {
 }
 
 function setup() {
-    const WIDTH = 1000;
-    const HEIGHT = 800;
+    const WIDTH = 600;
+    const HEIGHT = 500;
     const TITLE = "ELLIPSE";
     const FPS = 50;
 
@@ -69,6 +69,7 @@ function tearDown() {
 function loop(WORLD) {
     while (running()) {
         update(WORLD);
+        r.TakeScreenshot("ellipse.png");
         draw(WORLD);
     }
 }
